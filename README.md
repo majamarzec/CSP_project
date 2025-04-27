@@ -5,20 +5,20 @@ Author: Maja Marzec
 
 This project comprises 3 steps:
 
-1. data assesment
+1. data assessment
 2. ERDS & CSP analysis
 3. ML classifier
 
 
 ## data assesment
 
-Action points realized in "data_assesment" notebook:
+Action points realized in "data_assessment" notebook:
 - eeg signal upload from raw (bin), xlm, csv and tag files -> eeg dictionary with the option to call Fs, channel_names, rescaled values, tags
 - filtering [lowpass - 45Hz, highpass - 3Hz, notch - 50Hz]
 - applying chosen montage; options: common_average, linked ears, chosen reference channel
 - signal cutting for particular task describtion -> dictionary and signal save to local files
 
-Action points realized in "data_assesment miu" notebook:
+Action points realized in "data_assessment miu" notebook:
 - eeg signal upload from raw (bin), xlm, csv and tag files -> eeg dictionary with the option to call Fs, channel_names, rescaled values, tags
 - filtering [lowpass - 13Hz, highpass - 8Hz, notch - 50Hz] -- filtering to leave only the miu band
 - applying chosen montage; options: common_average, linked ears, chosen reference channel
@@ -33,7 +33,7 @@ It is presented for 3 approaches.
 
 ### A. "erds ruch" or "erds wyobrazenie"
 
-0. Upload signal and dictionary prepared in "data_assesment"
+0. Upload signal and dictionary prepared in "data_assessment"
 1. computation of spectrogram with noverlap = 1
 2. visualization of spectrogram averaged over trials (for each hand: left or right, color scale: global or local)
 
@@ -63,7 +63,7 @@ t - chosen time
 
 ### B. "erds ruch miu" or "erds wyobrazenie miu"
 
-0. Upload signal and dictionary prepared in "data_assesment miu"
+0. Upload signal and dictionary prepared in "data_assessment miu"
 1-5 all the same
 
 This approach was to test the hypothesis that additional preprocessing of signal in miu band will positively affect classification performance
@@ -74,7 +74,7 @@ We want to split EEG_signal by trials for train & test datasets
 Why? To make sure that there is no data leakage through "W" matrix
 We'll calculate the W only from traintest and apply to both train and test datasets.
 
-0. Upload signal and dictionary prepared in "data_assesment"
+0. Upload signal and dictionary prepared in "data_assessment"
 1. train_test split
 2. CSP algorythm on ONLY TRAIN signals
 3. CSP components calculation and vizualization for both train and test splits to make sure they "match"
